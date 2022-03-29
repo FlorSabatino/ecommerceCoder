@@ -1,0 +1,204 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.contenedorGrid {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 0.1fr 0.4fr 0.1fr 1fr 1fr 1fr;
+    grid-template-areas: 
+    "logosRedes"
+    "logoLocal"
+    "menuInicial"
+    "fotosProductos"
+    "gridArea"
+    "footer"    ;
+}
+.logosRedes {
+    grid-area: logosRedes;
+    }
+.logoLocal {
+    grid-area: logoLocal;
+}    
+.menuInicial {
+    grid-area: menuInicial;
+}
+.fotosProductos { 
+    grid-area: fotosProductos;
+}
+.gridArea {
+    grid-area: gridArea;
+}
+.footer {
+    grid-area: footer;
+}
+@media screen and (max-width: 480px) {
+    .logoLocal {
+        background-image: url(../imagenes/pinkrice.png);    
+}
+    .contenedorGrid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 0.1fr 0.2fr 0.1fr 1fr 1fr; 
+    grid-template-areas:
+    "logosRedes logosRedes"
+    "logoLocal logoLocal"
+    "menuInicial menuInicial"
+    "fotosProductos fotosProductos"
+    "footer gridArea"   ;
+}   
+    .menuInicial a{
+    padding: 0 2px; 
+    font-size: 18px;
+}
+    .menuInicial li{
+    padding: 0 5px;
+    font-size: 18px;
+}
+}
+.menuInicial {
+    background-image: linear-gradient(#d9a7c7,#fffcdc);
+    display: inline-block;
+    position: relative;
+    font-size: 15px;
+    padding: 0 10px;
+    text-decoration: none;
+    color:#3f403f;
+    font-size: 18px;
+
+}
+.menuInicial li{
+    display: inline-block;
+    position: relative;
+    padding: 0 5px;
+    text-decoration: none;
+    color:#3f403f;
+    font-size: 18px;
+}
+
+.subMenu{
+    display: none;
+    position: absolute;
+
+}
+
+.subMenu li{
+    display: block;
+    background-color: #CCE3DE;
+
+
+}
+.subSale{
+    display: none;
+    position: absolute;
+
+}
+
+.subSale li{
+    display: block;
+    background-color: #CCE3DE;
+
+}
+.menuInicial li:hover ul{
+    display: block;
+}
+.headerImg{
+    display: flex;
+    justify-content: center;
+    width: 250px;
+    height: 250px;
+    background-image: url(../imagenes/greyfloral.png);
+}
+h1{
+    color: #6B9080;
+    text-align: center;
+}
+h2{
+    color: #6B9080;
+    font-size: 25px;
+    padding: 10px;
+}
+h3{
+    color: black;
+    font-size: 20px;
+    padding: 10px;
+}
+h4{
+    color: black;
+    font-size: 15px;
+    padding: 10px;
+}
+body{
+    font-family: 'Dancing Script', cursive;
+    font-family: 'Shadows Into Light', cursive;
+}
+ul{
+    list-style-type: none;
+    text-decoration: none;
+}
+a{
+    text-decoration: none;
+}
+footer{
+    text-align: center;
+}
+.logosRedes {
+    width: 30px;
+    height: 30px;
+    display: flex;
+    flex-flow:row wrap;
+    justify-self:flex-end;
+}
+.fotosProductos{
+    display: flex;
+    color: #6B9080;
+    padding: 20px 0;
+    flex-flow: row wrap;
+    justify-content:center;
+}    
+.fotosProductos div img{
+    width: 250px;
+    height: 250px;
+    margin: 20px;
+    display: flex;
+    flex-flow: row wrap;
+    transition: all 1s;
+}
+.fotosProductos div img:hover{
+    width: 280px;
+    height: 280px;
+}
+.logoWhatsApp{
+    width: 70px;
+    height: 70px;
+    position: fixed;
+    bottom: 50px;
+    right: 50px;
+    z-index: 1000;
+}
+
+html{
+    background-image: url(../imagenes/grungewall.png);
+    font-size: 62,5%;
+}
+img{
+    display: block;
+    margin:auto;
+    width: 50vw;
+    height: 50vh;
+}
+
+.iframe {
+    margin: 25px;
+}
+
+.cancelarCompra{
+    width: 250px;
+    height: 70px;
+    font-size: 20px;
+    text-align:center;
+    background-color: #eaf4f4;
+    position: relative;
+    border: solid black;
+    margin: auto;
+}
