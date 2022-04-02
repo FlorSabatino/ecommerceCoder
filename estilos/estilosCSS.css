@@ -130,10 +130,11 @@ footer {
 
 .fotosProductos {
     display: flex;
-    color: #6B9080;
-    padding: 20px 0;
     flex-flow: row wrap;
     justify-content: center;
+    color: #6B9080;
+
+
 }
 
 .fotosProductos div img {
@@ -150,7 +151,7 @@ footer {
     height: 280px;
 }
 
-.logoWhatsApp {
+.logoWhatsApp{
     width: 80px;
     height: 60px;
     position: fixed;
@@ -175,4 +176,11 @@ img {
     position: relative;
     border: solid black;
     margin: auto;
+}
+.preguntasFrecuentes{
+    background-color: #9fc3b3;
+}
+.botonCarrito{
+    background-color: gray;
+    border: gray;
 }
