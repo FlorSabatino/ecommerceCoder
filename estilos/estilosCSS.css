@@ -2,12 +2,16 @@
     margin: 0;
     padding: 0;
 }
-
 .contenedorGrid{
     background-image: linear-gradient(#bbd2c5 , #536976);
     font-size: 62, 5%;
-}
+    font-family: 'Anybody', cursive;
 
+}
+.tituloPrincipal{
+    font-family: 'Indie Flower', cursive;
+    color: #3f403f;
+}
 .logolocal {
     background-image: url(../imagenes/greyfloral.png);
 }
@@ -133,8 +137,7 @@ footer {
     flex-flow: row wrap;
     justify-content: center;
     color: #6B9080;
-
-
+    margin: 20px;
 }
 
 .fotosProductos div img {
@@ -154,10 +157,10 @@ footer {
 .logoWhatsApp{
     width: 80px;
     height: 60px;
-    position: fixed;
     bottom: 50px;
     right: 20px;
     z-index: 1000;
+    position: fixed;
 }
 
 img {
@@ -167,8 +170,8 @@ img {
     height: 50vh;
 }
 
-.cancelarCompra {
-    width: 250px;
+.cancelarCompra{
+    width: 400px;
     height: 70px;
     font-size: 20px;
     text-align: center;
