@@ -1,12 +1,11 @@
-footer {
-    text-align: center;
-}
+@import "contacto";
+@import "sale";
+
 
 * {
     margin: 0;
-    padding: 0;
+    padding: 0; 
 }
-
 .tituloPrincipal {
     font-family: 'Indie Flower', cursive;
     color: #3f403f;
@@ -15,11 +14,11 @@ footer {
 
 .logolocal {
     background-image: url(../imagenes/greyfloral.png);
-}
 
-@media screen and (max-width: 480px) {
-    .logolocal .logoLocal {
-        background-image: url(../imagenes/pinkrice.png);
+    @media screen and (max-width: 480px) {
+        .logoLocal {
+            background-image: url(../imagenes/pinkrice.png);
+        }
     }
 }
 
@@ -32,44 +31,50 @@ footer {
     color: black;
     font-size: 18px;
     font-weight: bold;
-}
 
-.menuInicial li {
-    display: inline-block;
-    position: relative;
-    padding: 0 5px;
-    text-decoration: none;
-    color: black;
-    font-size: 18px;
-}
+    li {
+        display: inline-block;
+        position: relative;
+        padding: 0 5px;
+        text-decoration: none;
+        color: black;
+        font-size: 18px;
+            &:hover {
+                ul{
+                    display: block;
+                }
 
-.menuInicial li:hover ul {
-    display: block;
-}
+
+            }
+        }
+    }
+
 
 .subMenu {
     display: none;
     position: absolute;
-}
 
-.subMenu li {
-    display: block;
-    background-color: #CCE3DE;
-}
-
-.subMenu li:hover {
-    display: block;
+    li {
+        display: block;
+        background-color: #CCE3DE;
+        &:hover{
+            display: block;
+        }
+    }
 }
 
 .subSale {
     display: none;
     position: absolute;
+
+    li {
+        display: block;
+        background-color: #CCE3DE;
+    }
 }
 
-.subSale li {
-    display: block;
-    background-color: #CCE3DE;
-}
+
+
 
 .headerImg {
     display: flex;
@@ -116,7 +121,7 @@ ul {
 .linksRedesSociales {
     font-size: 18px;
     text-decoration: none;
-    color: black;
+    color: black
 }
 
 a {
@@ -139,20 +144,22 @@ footer {
     justify-content: center;
     color: #6B9080;
     margin: 20px;
-}
 
-.fotosProductos div img {
-    width: 250px;
-    height: 250px;
-    margin: 20px;
-    display: flex;
-    flex-flow: row wrap;
-    transition: all 1s;
-}
+    div {
+        img {
+            width: 250px;
+            height: 250px;
+            margin: 20px;
+            display: flex;
+            flex-flow: row wrap;
+            transition: all 1s;
 
-.fotosProductos div img:hover {
-    width: 280px;
-    height: 280px;
+            &:hover {
+                width: 280px;
+                height: 280px;
+            }
+        }
+    }
 }
 
 .logoWhatsApp {
@@ -190,8 +197,7 @@ img {
     background-color: gray;
     border: gray;
 }
-
-.contenedorGrid {
+.contenedorGrid{
     background-image: url(../imagenes/grungewall.png);
     font-size: 62, 5%;
     font-family: 'Anybody', cursive;
