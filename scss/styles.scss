@@ -4,8 +4,9 @@
 
 * {
     margin: 0;
-    padding: 0; 
+    padding: 0;
 }
+
 .tituloPrincipal {
     font-family: 'Indie Flower', cursive;
     color: #3f403f;
@@ -21,6 +22,23 @@
         }
     }
 }
+
+.subMenu {
+    display: none;
+    position: absolute;
+    li {
+    display: block;
+    background-color: #CCE3DE;
+        &:hover {
+            display: block;
+        }
+    }
+}
+
+.subSale {
+    @extend .subMenu;
+}
+
 
 .menuInicial {
     background-image: url(../imagenes/greyfloral.png);
@@ -39,41 +57,16 @@
         text-decoration: none;
         color: black;
         font-size: 18px;
-            &:hover {
-                ul{
-                    display: block;
-                }
 
-
+        &:hover {
+            ul {
+                display: block;
             }
-        }
-    }
 
 
-.subMenu {
-    display: none;
-    position: absolute;
-
-    li {
-        display: block;
-        background-color: #CCE3DE;
-        &:hover{
-            display: block;
         }
     }
 }
-
-.subSale {
-    display: none;
-    position: absolute;
-
-    li {
-        display: block;
-        background-color: #CCE3DE;
-    }
-}
-
-
 
 
 .headerImg {
@@ -153,7 +146,6 @@ footer {
             display: flex;
             flex-flow: row wrap;
             transition: all 1s;
-
             &:hover {
                 width: 280px;
                 height: 280px;
@@ -197,8 +189,30 @@ img {
     background-color: gray;
     border: gray;
 }
-.contenedorGrid{
+
+.contenedorGrid {
     background-image: url(../imagenes/grungewall.png);
     font-size: 62, 5%;
     font-family: 'Anybody', cursive;
+}
+
+@mixin sizes ($ancho, $alto) {
+    height: $alto;
+    width: $ancho;
+}
+.headerImg {
+    @include sizes(250px, 250px)
+}
+
+$mapa: (
+    color: #4d695d,
+    alineacion: center,
+    tFuente: 50px,
+)
+;
+
+.h1 {
+    background-color: map-get($mapa, color);
+    font-weight: map-get($mapa, alineacion);
+    font-size: map-get($mapa, tFuente);
 }

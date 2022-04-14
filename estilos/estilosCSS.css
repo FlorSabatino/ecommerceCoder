@@ -23,6 +23,23 @@ footer {
     }
 }
 
+.subMenu,
+.subSale {
+    display: none;
+    position: absolute;
+}
+
+.subMenu li,
+.subSale li {
+    display: block;
+    background-color: #CCE3DE;
+}
+
+.subMenu li:hover,
+.subSale li:hover {
+    display: block;
+}
+
 .menuInicial {
     background-image: url(../imagenes/greyfloral.png);
     display: inline-block;
@@ -45,30 +62,6 @@ footer {
 
 .menuInicial li:hover ul {
     display: block;
-}
-
-.subMenu {
-    display: none;
-    position: absolute;
-}
-
-.subMenu li {
-    display: block;
-    background-color: #CCE3DE;
-}
-
-.subMenu li:hover {
-    display: block;
-}
-
-.subSale {
-    display: none;
-    position: absolute;
-}
-
-.subSale li {
-    display: block;
-    background-color: #CCE3DE;
 }
 
 .headerImg {
@@ -195,4 +188,15 @@ img {
     background-image: url(../imagenes/grungewall.png);
     font-size: 62, 5%;
     font-family: 'Anybody', cursive;
+}
+
+.headerImg {
+    height: 250px;
+    width: 250px;
+}
+
+.h1 {
+    background-color: #4d695d;
+    font-weight: center;
+    font-size: 50px;
 }
