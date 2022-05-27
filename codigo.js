@@ -9,6 +9,46 @@ for (let i=1; i<=3; i++){
     alert("Usuario y/o contraseña erroneos!")
 }
 
+const listaProductos=["Polera manga princesa Verde militar","Sweater Rayado negro y rojo","Sweater Rayado natural y camel","Sweater manga globo Gris"]
+let cantidad=listaProductos.length;
+console.log ("Tenes "+cantidad+" productos en tu carrito")
+for (let i=0;i<cantidad;i++){
+    console.log(listaProductos);
+}
+listaProductos.splice (3);
+console.log (listaProductos);
+
+listaProductos.push("Sweater con volados manteca");
+console.log(listaProductos);
+
+const carritoCompras=[
+        {
+            producto: "Polera manga princesa Verde militar",
+            precio:1400 
+    },
+    {
+            producto: "Sweater Rayado negro y rojo",
+            precio:1500
+    },
+    {
+            producto: "Sweater Rayado natural y camel",
+            precio:1500
+    },
+    {
+            producto: "Sweater manga globo Gris",
+            precio:2000
+    },
+    {
+            producto: "Sweater con volados manteca",
+            precio:1400
+    },
+];
+for(const producto of carritoCompras){
+    console.log(producto.producto+" $"+producto.precio);
+
+}
+
+
 function suma(valor1, valor2, valor3) {
     return valor1 + valor2 + valor3;
 
