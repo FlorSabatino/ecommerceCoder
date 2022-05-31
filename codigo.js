@@ -8,13 +8,13 @@ for (let i=1; i<=3; i++){
     }
     alert("Usuario y/o contraseña erroneos!")
 }
-
 const listaProductos=["Polera manga princesa Verde militar","Sweater Rayado negro y rojo","Sweater Rayado natural y camel","Sweater manga globo Gris"]
 let cantidad=listaProductos.length;
 console.log ("Tenes "+cantidad+" productos en tu carrito")
 for (let i=0;i<cantidad;i++){
     console.log(listaProductos);
 }
+
 listaProductos.splice (3);
 console.log (listaProductos);
 
@@ -45,13 +45,17 @@ const carritoCompras=[
 ];
 for(const producto of carritoCompras){
     console.log(producto.producto+" $"+producto.precio);
+}
 
+let buscar=carritoCompras.find((productos)=>productos.producto="Sweater verde");
+console.log(buscar);
+if(buscar==undefined){
+    console.log("No se encontraron productos con ese nombre");
 }
 
 
 function suma(valor1, valor2, valor3) {
     return valor1 + valor2 + valor3;
-
 }
 
 let resultado = suma ((parseFloat(prompt("Ingrese importe articulo 1 "))), (parseFloat(prompt("Ingrese importe articulo 2"))), (parseFloat(prompt("Ingrese importe de articulo 3"))));
