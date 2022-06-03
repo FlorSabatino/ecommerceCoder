@@ -86,3 +86,36 @@ function despedirse(){
     let usuario=confirm("Gracias por tu compra!");
 }
 despedirse();
+
+console.dir(document.body);
+let seccionArriba = document.getElementById("seccionLogo");
+console.log(seccionArriba.innerHTML);
+seccionArriba.style.background="darkgrey";
+seccionArriba.innerText="Mi Tienda Lomas";
+seccionArriba.style.font="bold 40px arial";
+
+const productos=[{ id: 1, nombre: "Sweater Rayado natural y camel", precio: 1500},
+                {id: 2, nombre: "Sweater con volados manteca", precio: 1400},
+                {id: 3, nombre: "Polera manga princesa Verde", precio: 1400},
+                {id: 4, nombre: "Sweater hilo varios colores", precio: 1300},
+                {id: 5, nombre: "Sweater manga globo Gris", precio: 2000}];
+
+let tabla=document.createElement("table");
+tabla.className="table table-Overview";
+let tablaFin=document.createElement("tbody");
+
+for(const producto of productos){
+    let fila=document.createElement("tr");
+    fila.innerHTML=`
+                <td>${producto.id}</td>
+                <td>${producto.nombre}</td>
+                <td>$ ${producto.precio}</td>`;
+                tablaFin.append(fila);
+
+}
+
+tabla.append(tablaFin);
+let contenedorTablita=document.getElementById("tablitaDePrueba");
+contenedorTablita.append(tabla);
+
+
