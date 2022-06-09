@@ -118,4 +118,21 @@ tabla.append(tablaFin);
 let contenedorTablita=document.getElementById("tablitaDePrueba");
 contenedorTablita.append(tabla);
 
+let campoNombre=document.getElementById("nombre")
+let campoApellido=document.getElementById("apellido")
 
+
+campoNombre.oninput=()=>{
+    if(!isNaN(campoNombre.value)){
+        campoNombre.style.color="red";
+    }else{
+        campoNombre.style.color="black";
+    }
+}
+campoApellido.oninput=()=>{
+    if(!isNaN(campoApellido.value)){
+        campoApellido.style.color="red";
+    }else{
+        campoApellido.style.color="black";
+    }
+}
