@@ -20,7 +20,6 @@ campoApellido.oninput=()=>{
     }
 }
 
-
 campoConsulta.addEventListener("submit",validarFormulario);
 
 function validarFormulario(ev){

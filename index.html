@@ -72,105 +72,53 @@
                             <li class="nav-item">
                                 <a class="nav-link" href="./paginas/contacto.html">Contacto</a>
                             </li>
-                            <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" href="./paginas/sale.html" id="navbarDropdownMenuLink" role="button"
-                                    data-bs-toggle="dropdown" aria-expanded="false">
-                                    Sale
-                                </a>
-                                <ul class="dropdown-menu subSale" aria-labelledby="navbarDropdownMenuLink">
-                                    <li><a class="dropdown-item" href="./paginas/productos.html">Vestidos</a></li>
-                                    <li><a class="dropdown-item" href="./paginas/productos.html">Remeras</a></li>
-                                    <li><a class="dropdown-item" href="./paginas/productos.html">Sweaters</a></li>
-                                </ul>
+                            <li class="nav-item">
+                                <a class="nav-link" href="./paginas/sale.html">Carrito compras</a>
                             </li>
                         </ul>
                     </div>
                 </div>
             </div>
         </nav>
-            
-        <div class="row">
-            <div class="col-12 fotosProductos">
-                <div class="card" style="width: 18rem;">
-                    <img src="./imagenes/IMG_0297i.PNG" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">$1500</h5>
-                        <p class="card-text">Sweater Rayado natural y camel</p>
-                        <a href="#" class="btn btn-primary botonCarrito">Agregar al carrito</a>
-                    </div>
-                </div>
-                <div class="card" style="width: 18rem;">
-                    <img src="./imagenes/IMG_0298i.PNG" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">$1500</h5>
-                        <p class="card-text">Sweater Rayado negro y rojo</p>
-                        <a href="#" class="btn btn-primary botonCarrito">Agregar al carrito</a>
-                    </div>
-                </div>
-                <div class="card" style="width: 18rem;">
-                    <img src="./imagenes/IMG_0299i.PNG" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">$2000</h5>
-                        <p class="card-text">Sweater manga globo Gris</p>
-                        <a href="#" class="btn btn-primary botonCarrito">Agregar al carrito</a>
-                    </div>
-                </div>
-                <div class="card" style="width: 18rem;">
-                    <img src="./imagenes/IMG_0300i.PNG" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">$1300</h5>
-                        <p class="card-text">Sweater hilo varios colores</p>
-                        <a href="#" class="btn btn-primary botonCarrito">Agregar al carrito</a>
-                    </div>
-                </div>
-                <div class="card" style="width: 18rem;">
-                    <img src="./imagenes/IMG_0302i.PNG" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">$1400</h5>
-                        <p class="card-text">Polera manga princesa Verde militar</p>
-                        <a href="#" class="btn btn-primary botonCarrito">Agregar al carrito</a>
-                    </div>
-                </div>
-                <div class="card" style="width: 18rem;">
-                    <img src="./imagenes/IMG_0303i.PNG" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">$1400</h5>
-                        <p class="card-text">Polera manga princesa manteca</p>
-                        <a href="#" class="btn btn-primary botonCarrito">Agregar al carrito</a>
-                    </div>
-                </div>
-                <div class="card" style="width: 18rem;">
-                    <img src="./imagenes/IMG_0304i.PNG" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">$1400</h5>
-                        <p class="card-text">Sweater con volados gris</p>
-                        <a href="#" class="btn btn-primary botonCarrito">Agregar al carrito</a>
-                    </div>
-                </div>
-                <div class="card" style="width: 18rem;">
-                    <img src="./imagenes/IMG_0305i.PNG" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">$1400</h5>
-                        <p class="card-text">Sweater con volados manteca</p>
-                        <a href="#" class="btn btn-primary botonCarrito">Agregar al carrito</a>
-                    </div>
-                </div>
-                
+        <div>
+            <p></p>
+        </div>
+        <div id="milista" class="row">
+            <div id="template-card">
+
+   <template id="template-footer">
+                <th scope="row" colspan="2"> Total de productos</th>
+                <td>10</td>
+                <td>
+                    <button class="btn btn-danger btn-sm" id="vaciarCarrito">Vaciar Carrito</button>
+                </td>
+                <td class="font-weight-bold">$ <span>5000</span></td>
+            </template>
 
             </div>
         </div>
-<div id="tablitaDePrueba"></div>
+        <div>
+            <h4>Tu carrito:</h4>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th scope="col">Nombre</th>
+                        <th scope="col">Cantidad</th>
+                        <th scope="col">Precio</th>
+                    </tr>
+                </thead>
+                <tbody id="tablabody">
+
+                </tbody>
+            </table>
+        </div>
 
     <div class="row">
         <div class="col-sm-12 col-md-6">
             <footer class="gridArea">
-                <iframe style="border-radius:12px"
-                    src="https://open.spotify.com/embed/playlist/37i9dQZF1E4lDF40pYZmGl?utm_source=generator&theme=0"
-                    width="250" height="80" frameBorder="0" allowfullscreen=""
-                    allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
         </div>
 
-        <div class="col-md-3 col-sm-12">
+        <div class="col-md-12">
             <div class="cancelarCompra">
                 ¿Te Arrepentiste de comprar?
                 <a href="./paginas/contacto.html">Cancela tu Compra</a>
@@ -187,7 +135,6 @@
         <img class="logoWhatsApp" src="./imagenes/logoWhatsapp.png" alt="logoWhatsApp">
         </footer>
     </div>
-
 
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"
         integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB"
