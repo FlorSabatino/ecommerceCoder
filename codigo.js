@@ -55,98 +55,132 @@
 // despedirse();
 
 
-const templateCard = document.getElementById("template-card").content
-const templateFooter = document.getElementById("template-footer").content
+const cards = document.getElementById("cards")
+const templateCard =document.getElementById("template-card").content
+const items = document.getElementById("items")
 const footer = document.getElementById("footer")
+const templateFooter = document.getElementById ("template-footer").content
+const templateCarrito =document.getElementById ("template-carrito").content
+const fragment = document.createDocumentFragment ()
 
-let carrito=[];
+let carrito = {}
 
-const productos = [{
-    id: 1,
-    foto: "https://picsum.photos/id/1014/367/267",
-    nombre: "Sweater Rayado natural y camel",
-    precio: 1500,
-    cantidad: 1
-},
-{
-    id: 2,
-    foto: "https://picsum.photos/id/1013/367/267",
-    nombre: "Sweater Rayado negro y rojo",
-    precio: 1500,
-    cantidad: 1
-},
-{
-    id: 3,
-    foto: "https://picsum.photos/id/10/367/267",
-    nombre: "Polera manga princesa Verde militar",
-    precio: 1400,
-    cantidad: 1
-},
-{
-    id: 4,
-    foto: "https://picsum.photos/id/103/367/267",
-    nombre: "Sweater hilo varios colores",
-    precio: 1300,
-    cantidad: 1
-},
-{
-    id: 5,
-    foto: "https://picsum.photos/id/1035/367/267",
-    nombre: "Polera manga princesa manteca",
-    precio: 1400,
-    cantidad: 1
-},
-{
-    id: 6,
-    foto: "https://picsum.photos/id/104/367/267",
-    nombre: "Sweater con volados gris",
-    precio: 1400,
-    cantidad: 1
-},
-{
-    id: 7,
-    foto: "https://picsum.photos/id/1033/367/267",
-    nombre: "Sweater con volados manteca",
-    precio: 1400,
-    cantidad: 1
-}
-];
-
-
-if(localStorage.getItem("carrito")!=null){
-    carrito=JSON.parse(localStorage.getItem("carrito"));
-}
-
-let lista=document.getElementById("milista");
-
-renderizarProductos();
-
-function renderizarProductos() {
-    for (const producto of productos) {
-        lista.innerHTML+=`<li class="col-sm-3 list-group-item">
-        <img src=${producto.foto} width="250" height="250">
-        <p> Producto: ${producto.nombre}</p>
-        <p><strong> $ ${producto.precio} </strong></p>
-        <button class='btn btn-dark' id='btn${producto.id}'>Comprar</button>
-        </li>`;
+document.addEventListener("DOMContentLoaded", () => {
+    fetchData ()
+    if(localStorage.getItem("historial")){
+        carrito = JSON.parse (localStorage.getItem("historial"))
+        pintarCarrito ()
     }
-    productos.forEach(producto=>{
-        document.getElementById(`btn${producto.id}`).addEventListener('click',function(){
-            agregarAlCarrito(producto);
-        });
-    });
+})
+
+cards.addEventListener("click", e => {
+    addCarrito(e)
+})
+items.addEventListener ("click", e =>{
+    btnAccion(e)
+})
+const fetchData =async () => {
+    try {
+        const res = await fetch("paginas/api.json")
+        const data = await res.json()
+        pintarCards(data)
+    } catch (error) {
+        console.log(error)
+    }
 }
 
-function agregarAlCarrito(productoNuevo){
-    carrito.push(productoNuevo);
-    console.log(carrito);
-    alert("Producto: "+productoNuevo.nombre+" fue agregado al carrito de compra");
-    document.getElementById("tablabody").innerHTML+=`
-        <tr>
-            <td>${productoNuevo.nombre}</td>
-            <td>${productoNuevo.cantidad}</td>
-            <td>${productoNuevo.precio}</td>
-        </tr>
-    `;
-    sessionStorage.setItem("carrito",JSON.stringify(carrito));
+const pintarCards = data => {
+    data.forEach(producto => {
+        templateCard.querySelector("h5").textContent = producto.nombre
+        templateCard.querySelector('p').textContent = producto.precio
+        templateCard.querySelector("img").setAttribute("src", producto.foto)
+        templateCard.querySelector(".btn-dark").dataset.id = producto.id
+        const clone = templateCard.cloneNode(true)
+        fragment.appendChild(clone)
+})
+cards.appendChild(fragment)
+}
+
+const addCarrito = e => {
+    if (e.target.classList.contains("btn-dark")){
+        
+        setCarrito (e.target.parentElement)
+    }
+    e.stopPropagation()
+}
+const setCarrito = objeto => {
+    const producto ={
+        id: objeto.querySelector(".btn-dark").dataset.id,
+        nombre: objeto.querySelector("h5").textContent,
+        precio: objeto.querySelector("p").textContent,
+        cantidad: 1
+    }
+    if(carrito.hasOwnProperty(producto.id)){
+        producto.cantidad = carrito[producto.id].cantidad + 1
+    }
+    carrito [producto.id] = {...producto}
+    pintarCarrito()
+}
+const pintarCarrito = () => {
+    items.innerHTML = ""
+
+    Object.values(carrito).forEach(producto => {
+        templateCarrito.querySelector("th").textContent =producto.id
+        templateCarrito.querySelectorAll("td")[0].textContent = producto.nombre
+        templateCarrito.querySelectorAll("td")[1].textContent = producto.cantidad
+        templateCarrito.querySelector(".btn-secondary").dataset.id = producto.id
+        templateCarrito.querySelector(".btn-danger").dataset.id = producto.id
+        templateCarrito.querySelector("span").textContent = producto.cantidad * producto.precio
+        const clone = templateCarrito.cloneNode(true)
+        fragment.appendChild(clone)
+    })
+    items.appendChild(fragment)
+
+    pintarFooter () 
+
+    localStorage.setItem("historial", JSON.stringify(carrito))
+}
+    
+    const pintarFooter = () => {
+        footer.innerHTML = ""
+        if (Object.keys(carrito).length === 0) {
+            footer.innerHTML = '<th scope="row" colspan="5">Carrito vacío!</th>'
+
+            return
+
+        }
+        const nCantidad = Object.values (carrito).reduce((acc, {cantidad}) => acc + cantidad,0)
+       const nPrecio = Object.values (carrito).reduce((acc,{cantidad, precio}) => acc + cantidad * precio, 0)
+        console.log(nPrecio)
+
+        templateFooter.querySelectorAll("td")[0].textContent = nCantidad
+        templateFooter.querySelector("span").textContent = nPrecio
+        const clone = templateFooter.cloneNode(true)
+        fragment.appendChild(clone)
+        footer.appendChild(fragment)
+
+        const btnVaciar = document.getElementById("vaciar-carrito")
+        btnVaciar.addEventListener("click", () => {
+            carrito = {}
+            pintarCarrito()
+        })
+
+    }
+const btnAccion = e=> {
+    console.log(e.target)
+    if (e.target.classList.contains("btn-secondary")){
+        const producto = carrito[e.target.dataset.id]
+        producto.cantidad++
+        carrito[e.target.dataset.id] = {...producto}
+        pintarCarrito()
+    }
+    if (e.target.classList.contains("btn-danger")){
+        const producto = carrito[e.target.dataset.id]
+        producto.cantidad--
+        if (producto.cantidad === 0) {
+            delete carrito[e.target.dataset.id]
+        }
+        pintarCarrito()
+    }
+    e.stopPropagation()
 }
