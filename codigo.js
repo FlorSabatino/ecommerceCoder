@@ -1,58 +1,10 @@
+const usuario ={
+    nombre:"Florencia",
+    apellido: "Sabatino",
 
-//for (let i=1; i<=3; i++){
-//    let usuario=prompt("Ingresa tu nombre de usuario");
-//    let contrasenia=prompt("Ingresa tu contraseña");
-//    if((usuario=="Florencia")&&(contrasenia=="12345")){
-//        alert("Bienvenida Florencia");
-  //      break;
-    //}
-    //alert("Usuario y/o contraseña erroneos!")
-//}
-
-// let campoNombre=document.getElementById("nombre")
-// let campoApellido=document.getElementById("apellido")
-
-
-// console.dir(document.body);
-// let seccionArriba = document.getElementById("seccionLogo");
-// console.log(seccionArriba.innerHTML);
-// seccionArriba.style.background="darkgrey";
-// seccionArriba.innerText="Mi Tienda Lomas";
-// seccionArriba.style.font="bold 40px arial";
-
-
-// function suma(valor1, valor2, valor3) {
-//     return valor1 + valor2 + valor3;
-// }
-
-// let resultado = suma ((parseFloat(prompt("Ingrese importe articulo 1 "))), (parseFloat(prompt("Ingrese importe articulo 2"))), (parseFloat(prompt("Ingrese importe de articulo 3"))));
-
-// let codigoDescuento = confirm("¿Tenes un codigo de descuento?");
-
-// if (codigoDescuento){
-//     console.log("Tenes 10% de descuento en el total de la compra!");
-//     console.log("El total de tu compra con el codigo de descuento es: $", resultado*0.9);
-// }else{
-//     console.log("Sin descuento, el total de tu compra es: $", resultado);
-// }
-
-// let precioConDescuento=resultado*0.9
-
-
-// let finalPago = prompt("¿Abonas con tarjeta de credito en cuotas? Tenes 3 o 6 sin interes");
-
-// if(finalPago == 3){
-//     console.log("Son 3 cuotas de: $", precioConDescuento/3);
-// }else if(finalPago  == 6){
-//     console.log("Son 6 cuotas de: $", precioConDescuento/6);
-// }else{
-//     console.log("Un solo pago de: $", precioConDescuento);
-// }
-
-// function despedirse(){
-//     let usuario=confirm("Gracias por tu compra!");
-// }
-// despedirse();
+}
+let {nombre, apellido} = usuario
+console.log(usuario)
 
 
 const cards = document.getElementById("cards")
@@ -68,7 +20,7 @@ let carrito = {}
 document.addEventListener("DOMContentLoaded", () => {
     fetchData ()
     if(localStorage.getItem("historial")){
-        carrito = JSON.parse (localStorage.getItem("historial"))
+        carrito = JSON.parse (localStorage.getItem("historial")) || []
         pintarCarrito ()
     }
 })
@@ -81,7 +33,7 @@ items.addEventListener ("click", e =>{
 })
 const fetchData =async () => {
     try {
-        const res = await fetch("paginas/api.json")
+        const res = await fetch("paginas/stock.json")
         const data = await res.json()
         pintarCards(data)
     } catch (error) {
@@ -143,7 +95,7 @@ const pintarCarrito = () => {
     
     const pintarFooter = () => {
         footer.innerHTML = ""
-        if (Object.keys(carrito).length === 0) {
+        if (Object.keys(carrito).length === 0 && console.log("El carrito esta vacio")) {
             footer.innerHTML = '<th scope="row" colspan="5">Carrito vacío!</th>'
 
             return
