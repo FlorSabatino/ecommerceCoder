@@ -1,0 +1,50 @@
+[{
+    "id": 1,
+    "foto": "https://picsum.photos/id/10/367/267",
+    "nombre": "Sweater Rayado natural y camel",
+    "precio": 1500,
+    "cantidad": 1
+},
+{
+    "id": 2,
+    "foto": "https://picsum.photos/id/1013/367/267",
+    "nombre": "Sweater Rayado negro y rojo",
+    "precio": 1500,
+    "cantidad": 1
+},
+{
+    "id": 3,
+    "foto": "https://picsum.photos/id/1014/367/267",
+    "nombre": "Polera manga princesa Verde militar",
+    "precio": 1400,
+    "cantidad": 1
+},
+{
+    "id": 4,
+    "foto": "https://picsum.photos/id/103/367/267",
+    "nombre": "Sweater hilo varios colores",
+    "precio": 1300,
+    "cantidad": 1
+},
+{
+    "id": 5,
+    "foto": "https://picsum.photos/id/1035/367/267",
+    "nombre": "Polera manga princesa manteca",
+    "precio": 1400,
+    "cantidad": 1
+},
+{
+    "id": 6,
+    "foto": "http://127.0.0.1:5500/imagenes/IMG_0304i.PNG",
+    "nombre": "Sweater con volados gris",
+    "precio": 1400,
+    "cantidad": 1
+},
+{
+    "id": 7,
+    "foto": "http://127.0.0.1:5500/imagenes/IMG_0305i.PNG",
+    "nombre": "Sweater con volados manteca",
+    "precio": 1400,
+    "cantidad": 1
+}
+]
