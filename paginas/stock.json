@@ -35,14 +35,14 @@
 },
 {
     "id": 6,
-    "foto": "http://127.0.0.1:5500/imagenes/IMG_0304i.PNG",
+    "foto": "https://picsum.photos/id/1035/367/267",
     "nombre": "Sweater con volados gris",
     "precio": 1400,
     "cantidad": 1
 },
 {
     "id": 7,
-    "foto": "http://127.0.0.1:5500/imagenes/IMG_0305i.PNG",
+    "foto": "https://picsum.photos/id/1035/367/267",
     "nombre": "Sweater con volados manteca",
     "precio": 1400,
     "cantidad": 1

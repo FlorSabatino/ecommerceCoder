@@ -57,6 +57,12 @@ const addCarrito = e => {
     if (e.target.classList.contains("btn-dark")){
         
         setCarrito (e.target.parentElement)
+        Toastify ({
+            text:"Agregaste al carrito",
+            duration: 2000,
+            gravity: "top",
+            position: "right",
+        }) .showToast();
     }
     e.stopPropagation()
 }
@@ -66,7 +72,9 @@ const setCarrito = objeto => {
         nombre: objeto.querySelector("h5").textContent,
         precio: objeto.querySelector("p").textContent,
         cantidad: 1
+        
     }
+    
     if(carrito.hasOwnProperty(producto.id)){
         producto.cantidad = carrito[producto.id].cantidad + 1
     }
@@ -85,6 +93,7 @@ const pintarCarrito = () => {
         templateCarrito.querySelector("span").textContent = producto.cantidad * producto.precio
         const clone = templateCarrito.cloneNode(true)
         fragment.appendChild(clone)
+        
     })
     items.appendChild(fragment)
 
@@ -100,7 +109,9 @@ const pintarCarrito = () => {
 
             return
 
-        }
+        }{
+
+    }
         const nCantidad = Object.values (carrito).reduce((acc, {cantidad}) => acc + cantidad,0)
        const nPrecio = Object.values (carrito).reduce((acc,{cantidad, precio}) => acc + cantidad * precio, 0)
         console.log(nPrecio)
@@ -111,10 +122,18 @@ const pintarCarrito = () => {
         fragment.appendChild(clone)
         footer.appendChild(fragment)
 
+
         const btnVaciar = document.getElementById("vaciar-carrito")
         btnVaciar.addEventListener("click", () => {
             carrito = {}
             pintarCarrito()
+          
+            Toastify ({
+                text:"Carrito vacío",
+                duration: 2000,
+                gravity: "top",
+                position: "right",
+            }) .showToast();
         })
 
     }
@@ -125,6 +144,13 @@ const btnAccion = e=> {
         producto.cantidad++
         carrito[e.target.dataset.id] = {...producto}
         pintarCarrito()
+        Toastify ({
+            text:"Agregaste al carrito",
+            duration: 2000,
+            gravity: "top",
+            position: "right",
+            
+        }) .showToast();
     }
     if (e.target.classList.contains("btn-danger")){
         const producto = carrito[e.target.dataset.id]
@@ -133,6 +159,14 @@ const btnAccion = e=> {
             delete carrito[e.target.dataset.id]
         }
         pintarCarrito()
+        Toastify ({
+            text:"Eliminaste del carrito",
+            duration: 2000,
+            gravity: "top",
+            position: "right",
+            
+        }) .showToast();
     }
+
     e.stopPropagation()
 }
