@@ -18,7 +18,7 @@ const fragment = document.createDocumentFragment ()
 let carrito = {}
 
 document.addEventListener("DOMContentLoaded", () => {
-    fetchData ()
+    fetch ()
     if(localStorage.getItem("historial")){
         carrito = JSON.parse (localStorage.getItem("historial")) || []
         pintarCarrito ()
@@ -31,7 +31,7 @@ cards.addEventListener("click", e => {
 items.addEventListener ("click", e =>{
     btnAccion(e)
 })
-const fetchData =async () => {
+const fetch =async () => {
     try {
         const res = await fetch("paginas/stock.json")
         const data = await res.json()
