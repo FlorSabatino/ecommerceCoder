@@ -87,17 +87,11 @@
     <div class="row">
         <div class="col-md-6 col-sm-12">
                 <h3>Formulario de contacto</h3>
-                    <div>
+                    <form id="consulta" class="form-floating">
                         <input id="nombre" type="text" class="form-control" placeholder="Nombre" aria-label="First name">
                         <input id="apellido" type="text" class="form-control" placeholder="Apellido" aria-label="Last name">
-                    </div>
-                
-
-                <form id="consulta" class="form-floating">
-                    <input type="email" class="form-control" id="floatingInputValue" placeholder="name@example.com"
-                        value="Mail">
+                        <input type="email" class="form-control" id="floatingInputValue" placeholder="name@example.com" value="Mail">
                     <label for="floatingInputValue"></label>
-                
         <div class="mb-3">
             <label for="exampleFormControlTextarea1" class="form-label">Dejanos tu comentario</label>
            
@@ -108,12 +102,13 @@
                     Recibir promociones y novedades
                 </label>
             </div>
-            <button type="button" class="btn btn-primary
-                                btn-sm">Enviar</button>
+            <button type="button" onclick="captura()" class="btn btn-primary
+            btn-sm">Enviar</button>
             <button type="button" class="btn btn-secondary
                                 btn-sm">Borrar</button>
         </form> 
-        </div>  
+        </div> 
+    </form> 
     </div>
             
     <div class="gridArea col-sm-12 col-md-6">

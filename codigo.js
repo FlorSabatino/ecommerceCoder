@@ -53,6 +53,7 @@ const pintarCards = data => {
 cards.appendChild(fragment)
 }
 
+//agregar producto al carrito y libreria
 const addCarrito = e => {
     if (e.target.classList.contains("btn-dark")){
         
@@ -101,7 +102,7 @@ const pintarCarrito = () => {
 
     localStorage.setItem("historial", JSON.stringify(carrito))
 }
-    
+//vaciar carrito
     const pintarFooter = () => {
         footer.innerHTML = ""
         if (Object.keys(carrito).length === 0 && console.log("El carrito esta vacio")) {
@@ -137,6 +138,7 @@ const pintarCarrito = () => {
         })
 
     }
+//Funcion de los botones de + y - del carrito. Librerias aplicadas a los botones de agregar y eliminar desde el carrito, y
 const btnAccion = e=> {
     console.log(e.target)
     if (e.target.classList.contains("btn-secondary")){
